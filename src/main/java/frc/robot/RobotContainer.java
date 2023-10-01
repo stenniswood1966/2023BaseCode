@@ -15,7 +15,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
-import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
+//import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
+//import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 import frc.robot.autos.*;
@@ -30,12 +32,12 @@ import frc.robot.subsystems.*;
  */
 public class RobotContainer {
   /* Controllers */
-  private final CommandPS4Controller controller = new CommandPS4Controller(0);
+  //private final CommandPS4Controller controller = new CommandPS4Controller(Constants.Driver.PS4_PORT);
+  private final XboxController controller = new XboxController(Constants.Driver.XBOX_PORT);
 
   /* Driver Buttons */
-  private final Trigger zeroSwerve = controller.options();
-
-  
+  //private final Trigger zeroSwerve = controller.options();
+  private final Trigger zeroSwerve = new JoystickButton(controller, Constants.Driver.RESET_GYRO);
   /* Subsystems */
   public static final Swerve s_Swerve = new Swerve();
 
@@ -46,12 +48,15 @@ public class RobotContainer {
   public RobotContainer() {
     s_Swerve.setDefaultCommand(new TeleopSwerve(s_Swerve, controller, true));
     
+
+    
     // Configure the button bindings
     configureButtonBindings();
     
     //Add autonoumous options to chooser
     m_AutoChooser.setDefaultOption("None", Autos.none());
     m_AutoChooser.addOption("PathPlanner Example", Autos.exampleAuto());
+    m_AutoChooser.addOption("Exist", Autos.ExistAuto());
 
     SmartDashboard.putData(m_AutoChooser);
   }

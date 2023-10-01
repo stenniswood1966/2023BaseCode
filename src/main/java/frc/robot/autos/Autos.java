@@ -54,6 +54,14 @@ public final class Autos {
             new PathConstraints(Constants.AutoConstants.kMaxSpeedMetersPerSecond, Constants.AutoConstants.kMaxAccelerationMetersPerSecondSquared)));
     }
 
+    public static Command ExistAuto(){
+        return autoBuilder.fullAuto(PathPlanner.loadPathGroup("Exist", 
+            new PathConstraints(Constants.AutoConstants.kMaxSpeedMetersPerSecond, Constants.AutoConstants.kMaxAccelerationMetersPerSecondSquared)));
+    }
+
+
+
+
     /**
      * Blank Autonomous to be used as default dashboard option
      * @return Autonomous command

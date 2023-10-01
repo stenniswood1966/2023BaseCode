@@ -6,7 +6,9 @@ import frc.robot.subsystems.Swerve;
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
+//import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+//import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
+import edu.wpi.first.wpilibj.XboxController;
 
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
@@ -22,7 +24,7 @@ public class TeleopSwerve extends CommandBase {
     private boolean openLoop;
     
     private Swerve s_Swerve;
-    private CommandPS4Controller controller;
+    private XboxController controller;
 
     private final Field2d m_field = new Field2d();
     private Pose2d startPose = new Pose2d(Units.inchesToMeters(177), Units.inchesToMeters(214), Rotation2d.fromDegrees(0));
@@ -30,10 +32,10 @@ public class TeleopSwerve extends CommandBase {
     /**
      * Driver Control command
      * @param s_Swerve Swerve subsystem
-     * @param controller PS4 controller
+     * @param controller XboxController
      * @param openLoop True
      */
-    public TeleopSwerve(Swerve s_Swerve, CommandPS4Controller controller, boolean openLoop) {
+    public TeleopSwerve(Swerve s_Swerve, XboxController controller, boolean openLoop) {
         this.s_Swerve = s_Swerve;
         addRequirements(s_Swerve);
 

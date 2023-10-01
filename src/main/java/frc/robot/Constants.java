@@ -13,6 +13,12 @@ public final class Constants {
     public static final double stickDeadband = 0.1;
     public static final String CANBUS_NAME = "Flurb";
 
+    public static class Driver {
+        public static final int XBOX_PORT = 0;
+        public static final int RESET_GYRO = 3; //x button
+
+    }
+
     public static final class Swerve {
         public static final int pigeonID = 1;
         public static final boolean invertGyro = false; // Always ensure Gyro is CCW+ CW-
