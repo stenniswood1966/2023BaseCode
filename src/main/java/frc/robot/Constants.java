@@ -15,8 +15,8 @@ public final class Constants {
 
     public static class Driver {
         public static final int XBOX_PORT = 0;
-        public static final int RESET_GYRO = 3; //x button
-        public static final int Robot_CENTRIC = 1;
+        public static final int RESET_GYRO = 3; //X button
+        public static final int Robot_CENTRIC = 1; // A button
 
     }
 
