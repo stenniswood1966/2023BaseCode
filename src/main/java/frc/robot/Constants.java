@@ -16,6 +16,7 @@ public final class Constants {
     public static class Driver {
         public static final int XBOX_PORT = 0;
         public static final int RESET_GYRO = 3; //x button
+        public static final int Robot_CENTRIC = 1;
 
     }
 
@@ -32,7 +33,7 @@ public final class Constants {
         public static final double openLoopRamp = 0.25;
         public static final double closedLoopRamp = 0.0;
 
-        public static final double driveGearRatio = (6.75 / 1.0); //6.75:1
+        public static final double driveGearRatio = (6.12 / 1.0); //6.75:1
         public static final double angleGearRatio = (12.8 / 1.0); //12.8:1
 
         public static final SwerveDriveKinematics swerveKinematics = new SwerveDriveKinematics(

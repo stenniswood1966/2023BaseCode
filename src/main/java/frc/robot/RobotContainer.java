@@ -31,6 +31,7 @@ import frc.robot.subsystems.*;
  * subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
+
   /* Controllers */
   //private final CommandPS4Controller controller = new CommandPS4Controller(Constants.Driver.PS4_PORT);
   private final XboxController controller = new XboxController(Constants.Driver.XBOX_PORT);
@@ -38,6 +39,7 @@ public class RobotContainer {
   /* Driver Buttons */
   //private final Trigger zeroSwerve = controller.options();
   private final Trigger zeroSwerve = new JoystickButton(controller, Constants.Driver.RESET_GYRO);
+  private final Trigger robotcentric = new JoystickButton(controller, Constants.Driver.Robot_CENTRIC);
   /* Subsystems */
   public static final Swerve s_Swerve = new Swerve();
 
@@ -73,6 +75,8 @@ public class RobotContainer {
     zeroSwerve
       .onTrue(new InstantCommand(() -> s_Swerve.zeroGyro(0))
       .alongWith(new InstantCommand(() -> s_Swerve.resetOdometry(new Pose2d(0.0, 0.0, Rotation2d.fromDegrees(0))))));
+
+    robotcentric.toggleOnTrue(new TeleopSwerveRobotCentric(s_Swerve, controller, true));
   }
 
   /**
