@@ -17,6 +17,7 @@ public final class Constants {
         public static final int XBOX_PORT = 0;
         public static final int RESET_GYRO = 3; //X button
         public static final int Robot_CENTRIC = 1; // A button
+        public static boolean FIELD_RELATIVE = true;
 
     }
 

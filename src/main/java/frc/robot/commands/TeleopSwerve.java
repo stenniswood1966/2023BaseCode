@@ -42,10 +42,15 @@ public class TeleopSwerve extends CommandBase {
         this.controller = controller;
         this.openLoop = openLoop;
 
-
         SmartDashboard.putData("Field", m_field);
-        m_field.setRobotPose(startPose);        
-    }
+        m_field.setRobotPose(startPose);
+
+       if (controller.getRawButton(Constants.Driver.RESET_GYRO)) {
+            Constants.Driver.FIELD_RELATIVE = true;
+       } else {
+            Constants.Driver.FIELD_RELATIVE = false;
+        }
+       }
 
     @Override
     public void execute() {
@@ -61,7 +66,7 @@ public class TeleopSwerve extends CommandBase {
         /* Calculates inputs for swerve subsytem */
         translation = new Translation2d(yAxis, xAxis).times(Constants.Swerve.maxSpeed);
         rotation = rAxis * Constants.Swerve.maxAngularVelocity;
-        s_Swerve.drive(translation, rotation, true, openLoop);
+        s_Swerve.drive(translation, rotation, Constants.Driver.FIELD_RELATIVE, openLoop);
 
         m_field.setRobotPose(s_Swerve.getPose());        
     }

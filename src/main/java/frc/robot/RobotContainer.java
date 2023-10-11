@@ -39,7 +39,7 @@ public class RobotContainer {
   /* Driver Buttons */
   //private final Trigger zeroSwerve = controller.options();
   private final Trigger zeroSwerve = new JoystickButton(controller, Constants.Driver.RESET_GYRO);
-  private final Trigger robotcentric = new JoystickButton(controller, Constants.Driver.Robot_CENTRIC);
+  //private final Trigger robotcentric = new JoystickButton(controller, Constants.Driver.Robot_CENTRIC);
   /* Subsystems */
   public static final Swerve s_Swerve = new Swerve();
 
@@ -76,7 +76,7 @@ public class RobotContainer {
       .onTrue(new InstantCommand(() -> s_Swerve.zeroGyro(0))
       .alongWith(new InstantCommand(() -> s_Swerve.resetOdometry(new Pose2d(0.0, 0.0, Rotation2d.fromDegrees(0))))));
 
-    robotcentric.toggleOnTrue(new TeleopSwerveRobotCentric(s_Swerve, controller, true));
+    //robotcentric.toggleOnTrue(new TeleopSwerveRobotCentric(s_Swerve, controller, true));
   }
 
   /**
