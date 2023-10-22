@@ -45,7 +45,7 @@ public class TeleopSwerve extends CommandBase {
         SmartDashboard.putData("Field", m_field);
         m_field.setRobotPose(startPose);
 
-       if (controller.getRawButton(Constants.Driver.RESET_GYRO)) {
+       if (controller.getRawButton(Constants.Driver.Robot_CENTRIC)) {
             Constants.Driver.FIELD_RELATIVE = true;
        } else {
             Constants.Driver.FIELD_RELATIVE = false;
